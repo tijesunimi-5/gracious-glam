@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,200..800&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#e8305e",
+              "accent-gold": "#d4af37",
+              "soft-blush": "#fff5f6",
+              "background-light": "#f8f6f6",
+              "background-dark": "#211114",
+            },
+            fontFamily: { display: ["Newsreader", "serif"] },
+            borderRadius: { DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+    <title>GG Booking & Availability</title>
+    <style>
+      body { min-height: max(884px, 100dvh); }
+    </style>
+  </head>
+  <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+    <div class="relative flex h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-hidden max-w-md mx-auto shadow-2xl">
+      
+      <header class="flex items-center bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-10 p-4 border-b border-primary/10">
+        <div onclick="window.history.back()" class="flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-primary/5 cursor-pointer">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </div>
+        <h2 class="text-xl font-bold leading-tight tracking-tight flex-1 text-center italic">Gracious Glam</h2>
+        <div class="flex size-10 items-center justify-end">
+          <button class="flex items-center justify-center rounded-full"><span class="material-symbols-outlined">share</span></button>
+        </div>
+      </header>
+
+      <main class="flex-1 overflow-y-auto pb-10">
+        <section class="p-6">
+          <h4 class="text-primary text-sm font-bold tracking-widest uppercase mb-4 text-center">Contact Details</h4>
+          <div class="space-y-3 bg-white dark:bg-slate-900/50 p-4 rounded-xl border border-primary/5 shadow-sm text-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-slate-500">Email</span>
+              <p class="font-medium text-xs">ogundejigraceayomide@gmail.com</p>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-slate-500">Phone</span>
+              <p class="font-medium">+234 901 504 3949</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="px-6 py-2">
+          <div class="text-center mb-6">
+            <h3 class="text-2xl font-bold italic">Book Your Session</h3>
+            <p class="text-slate-500 text-xs mt-1">Select a time that works best for you</p>
+          </div>
+
+          <div class="rounded-xl overflow-hidden border border-primary/10 shadow-lg bg-white min-h-[500px]">
+            
+            <iframe 
+                src="https://calendar.google.com/calendar/appointments/schedules/YOUR_ID_HERE?gv=true" 
+                style="border: 0" 
+                width="100%" 
+                height="600" 
+                frameborder="0">
+            </iframe>
+
+            </div>
+        </section>
+
+        <section class="p-6 text-center">
+            <p class="text-slate-400 text-[10px] uppercase tracking-widest leading-relaxed">
+                Confirmation details will be sent to your email <br> automatically after booking.
+            </p>
+        </section>
+      </main>
+
+      </div>
+  </body>
+</html>

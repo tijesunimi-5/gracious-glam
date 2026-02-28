@@ -1,0 +1,252 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#e8305e", // Blush Pink Accent
+              "background-light": "#f8f6f6", // Nude/Off-white
+              "background-dark": "#211115",
+              champagne: "#f3e5d8",
+              "nude-dark": "#88636c",
+            },
+            fontFamily: {
+              display: ["Manrope", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Manrope", sans-serif;
+        -webkit-tap-highlight-color: transparent;
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100"
+  >
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden"
+    >
+      <!-- Header / Top Bar -->
+      <header
+        class="fixed top-0 right-0 left-0 z-50 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 justify-between border-b border-primary/10"
+      >
+        <div
+          class="text-slate-900 dark:text-slate-100 flex size-10 items-center justify-center"
+        >
+          <span class="material-symbols-outlined">menu</span>
+        </div>
+        <h2
+          class="text-slate-900 dark:text-slate-100 text-xl font-extrabold leading-tight tracking-[-0.015em] flex-1 text-center font-display uppercase tracking-widest"
+        >
+          Gracious Glam
+        </h2>
+        <div class="flex w-10 items-center justify-end">
+          <button
+            class="flex cursor-pointer items-center justify-center rounded-xl h-10 w-10 bg-transparent text-slate-900 dark:text-slate-100"
+          >
+            <span class="material-symbols-outlined">calendar_month</span>
+          </button>
+        </div>
+      </header>
+      <!-- Hero Section -->
+      <div class="@container mt-20">
+        <div class="p-4">
+          <div
+            class="flex min-h-[520px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-center justify-center p-6 relative overflow-hidden shadow-2xl"
+            data-alt="Soft focus glamorous close up of luxury makeup application"
+            style="
+              background-image:
+                linear-gradient(rgba(33, 17, 21, 0.4), rgba(33, 17, 21, 0.7)),
+                url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBWHnynIrsTsfFcQnJ2yHV_ftZ9DzkqE_5xpSZEPEwL1JI5Wy8FMUHlKz2UaAsQryn28uF2pit2rhooNIkJsZhpkSzaAKVBIkcIc0q0X_RohzNq2xJE210ALqUkKUlPLjVcz84wOhbJqINay6CR8gfQ1Dr7pF4-s4cA77zXC1zaeN8m-LS_Nv1vs-Y2KB5hSxUX7wrlFZUqVZQe5v7ErxGKb5-PscwTmIIwqnIVt2YqrTbq55TWyBbTIBTiK-T-JN6VtxsXzudBP1U&quot;);
+            "
+          >
+            <div class="flex flex-col gap-3 text-center z-10">
+              <span
+                class="text-primary font-bold tracking-[0.3em] uppercase text-xs"
+                >The GG Standard</span
+              >
+              <h1
+                class="text-white text-4xl font-extrabold leading-tight tracking-tight @[480px]:text-6xl"
+              >
+                Gracious Glam – GG
+              </h1>
+              <p
+                class="text-champagne/90 text-base font-light leading-relaxed max-w-[320px] mx-auto"
+              >
+                Elevate your natural allure with high-end luxury makeup artistry
+                designed for your most precious moments.
+              </p>
+            </div>
+            <a
+              href="/service.html"
+              class="z-10 flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-8 bg-primary text-white text-base font-bold shadow-lg shadow-primary/30 active:scale-95 transition-transform cta"
+            >
+              <span>Book Appointment</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- About Section -->
+      <section
+        class="flex flex-col gap-10 px-6 py-12 @container bg-background-light dark:bg-background-dark"
+      >
+        <div class="flex flex-col gap-6 items-center text-center">
+          <div class="relative">
+            <div class="w-48 h-48 rounded-full border-4 border-primary/20 p-2">
+              <div
+                class="w-full h-full rounded-full bg-center bg-no-repeat bg-cover"
+                data-alt="Elegant model with high-end makeup artistry"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCj7b6XpKMZmNyB2lpNxWMjhP5zp0GDIsIQHj5JGJmSEF6gwbpgs25oIJGmjh428jXvHMHCyYSf2q8UJMis4aiiqjM15x_Fsvurx4RxPBUZNu0vTQk4TO6t_z9Om9u_XZlfDn35hgIrlMUO4H3V069JAWQjDtfTO0ZvV7U6AVWXLqtruTmXvmlYoxxLVZ7AlZcI8opvxzWYtOSkZNK5rG-Ao0mhjKJ36sE1Yc9Bij3Tis9RKYxhmCCCMdsuPeFWQsFrOqP30--s97M&quot;);
+                "
+              ></div>
+            </div>
+            <div
+              class="absolute -bottom-2 -right-2 bg-champagne text-nude-dark px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm"
+            >
+              Est. 2025
+            </div>
+          </div>
+          <div class="flex flex-col gap-4">
+            <h2
+              class="text-slate-900 dark:text-slate-100 text-3xl font-extrabold leading-tight tracking-tight"
+            >
+              The GG Experience
+            </h2>
+            <p
+              class="text-nude-dark dark:text-slate-400 text-base font-normal leading-relaxed max-w-[600px]"
+            >
+              Founded on the principles of luxury and grace, we provide a
+              personalized artistry experience that enhances your unique
+              features. Our signature "Radiant Nude" look has become a staple
+              for brides and gala attendees across the globe.
+            </p>
+          </div>
+        </div>
+        <!-- Feature Cards -->
+        <div class="grid grid-cols-1 gap-4 @[480px]:grid-cols-2">
+          <div
+            class="flex flex-col gap-4 p-6 rounded-xl bg-white dark:bg-slate-800/50 shadow-sm border border-primary/5"
+          >
+            <div
+              class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary"
+            >
+              <span class="material-symbols-outlined">brush</span>
+            </div>
+            <div>
+              <h3 class="text-slate-900 dark:text-slate-100 font-bold text-lg">
+                Bespoke Artistry
+              </h3>
+              <p
+                class="text-nude-dark dark:text-slate-400 text-sm leading-normal mt-1"
+              >
+                Every application is tailored to your skin tone and bone
+                structure.
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-4 p-6 rounded-xl bg-white dark:bg-slate-800/50 shadow-sm border border-primary/5"
+          >
+            <div
+              class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary"
+            >
+              <span class="material-symbols-outlined">diamond</span>
+            </div>
+            <div>
+              <h3 class="text-slate-900 dark:text-slate-100 font-bold text-lg">
+                Luxury Products
+              </h3>
+              <p
+                class="text-nude-dark dark:text-slate-400 text-sm leading-normal mt-1"
+              >
+                We use only the world's most exclusive, high-performance brands.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <button
+            class="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-6 bg-primary/10 text-primary text-sm font-bold tracking-wide hover:bg-primary/20 transition-colors"
+          >
+            <span>Learn More</span>
+          </button>
+        </div>
+      </section>
+      <!-- Spacer -->
+      <div class="h-20 bg-background-light dark:bg-background-dark"></div>
+      <!-- Bottom Navigation Bar (iOS Style) -->
+      <nav
+        class="fixed bottom-0 left-0 right-0 z-50 flex border-t border-primary/10 bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg px-6 pb-6 pt-3"
+      >
+        <a
+          class="flex flex-1 flex-col items-center justify-center gap-1 text-primary"
+          href="/home.html"
+        >
+          <span class="material-symbols-outlined fill-1">home</span>
+          <p class="text-[10px] font-bold uppercase tracking-widest">Home</p>
+        </a>
+        <a
+          class="flex flex-1 flex-col items-center justify-center gap-1 text-nude-dark dark:text-slate-400"
+          href="/service.html"
+        >
+          <span class="material-symbols-outlined">palette</span>
+          <p class="text-[10px] font-medium uppercase tracking-widest">
+            Services
+          </p>
+        </a>
+        <a
+          class="flex flex-1 flex-col items-center justify-center gap-1 text-nude-dark dark:text-slate-400"
+          href="/testimonials.html"
+        >
+          <span class="material-symbols-outlined">photo_library</span>
+          <p class="text-[10px] font-medium uppercase tracking-widest">
+            Testimonials
+          </p>
+        </a>
+        <a
+          class="flex flex-1 flex-col items-center justify-center gap-1 text-nude-dark dark:text-slate-400"
+          href="/contact.html"
+        >
+          <span class="material-symbols-outlined">calendar_month</span>
+          <p class="text-[10px] font-medium uppercase tracking-widest">Book</p>
+        </a>
+      </nav>
+    </div>
+  </body>
+</html>
