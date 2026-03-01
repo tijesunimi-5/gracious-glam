@@ -1,21 +1,11 @@
 <!doctype html>
-
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
       tailwind.config = {
@@ -27,347 +17,132 @@
               "background-light": "#f8f6f6",
               "background-dark": "#211115",
             },
-            fontFamily: {
-              display: ["Manrope"],
-            },
-            borderRadius: {
-              DEFAULT: "0.5rem",
-              lg: "1rem",
-              xl: "1.5rem",
-              full: "9999px",
-            },
+            fontFamily: { display: ["Manrope"] },
+            borderRadius: { DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px" },
           },
         },
       };
     </script>
-    <title>GG Services &amp; Portfolio</title>
+    <title>GG Services & Portfolio</title>
     <style>
-      body {
-        min-height: max(884px, 100dvh);
-      }
+      body { min-height: max(884px, 100dvh); }
     </style>
-    <script>
-      // 1. Date Selection
-      const days = document.querySelectorAll(".grid-cols-7 .h-10.flex");
-      days.forEach((day) => {
-        // Only allow clicking on days that aren't empty or disabled (opacity-30)
-        if (
-          day.innerText.trim() !== "" &&
-          !day.classList.contains("opacity-30")
-        ) {
-          day.style.cursor = "pointer";
-          day.onclick = () => {
-            // Reset others
-            days.forEach((d) =>
-              d.classList.remove(
-                "bg-primary",
-                "text-white",
-                "rounded-lg",
-                "font-bold",
-              ),
-            );
-            // Select this one
-            day.classList.add(
-              "bg-primary",
-              "text-white",
-              "rounded-lg",
-              "font-bold",
-            );
-            localStorage.setItem(
-              "gg_booking_date",
-              `October ${day.innerText.trim()}, 2024`,
-            );
-          };
-        }
-      });
-
-      // 2. Time Selection
-      const timeButtons = document.querySelectorAll(
-        ".grid-cols-2 button:not(.cursor-not-allowed)",
-      );
-      timeButtons.forEach((btn) => {
-        btn.onclick = () => {
-          timeButtons.forEach((b) => {
-            b.classList.remove("bg-primary", "text-white", "border-primary");
-            b.classList.add("border-slate-200");
-          });
-          btn.classList.add("bg-primary", "text-white");
-          btn.classList.remove("border-slate-200");
-          localStorage.setItem("gg_booking_time", btn.innerText.trim());
-        };
-      });
-
-      // 3. Confirm Selection Button
-      const confirmBtn = document.querySelector("button.bg-primary.w-full");
-      confirmBtn.onclick = () => {
-        if (
-          !localStorage.getItem("gg_booking_date") ||
-          !localStorage.getItem("gg_booking_time")
-        ) {
-          alert("Please select a date and time first!");
-          return;
-        }
-        window.location.href = "thanks.html";
-      };
-    </script>
   </head>
 
-  <body
-    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100"
-  >
-    <div
-      class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden"
-    >
-      <!-- Header -->
-      <div
-        class="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-background-dark/80 backdrop-blur-md p-4 border-b border-primary/10 justify-between"
-      >
+  <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+      <div class="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-background-dark/80 backdrop-blur-md p-4 border-b border-primary/10 justify-between">
         <div class="flex size-12 shrink-0 items-center justify-start">
-          <span
-            class="material-symbols-outlined text-slate-900 dark:text-slate-100"
-            >menu</span
-          >
+          <span class="material-symbols-outlined text-slate-900 dark:text-slate-100">menu</span>
         </div>
-        <h2
-          class="text-primary text-xl font-extrabold tracking-tight flex-1 text-center"
-        >
-          GRACIOUS GLAM
-        </h2>
+        <h2 class="text-primary text-xl font-extrabold tracking-tight flex-1 text-center">GRACIOUS GLAM</h2>
         <div class="flex w-12 items-center justify-end">
-          <button
-            class="flex items-center justify-center rounded-xl h-10 w-10 bg-primary/10 text-primary"
-          >
-            <span class="material-symbols-outlined text-[24px]"
-              >shopping_bag</span
-            >
+          <button class="flex items-center justify-center rounded-xl h-10 w-10 bg-primary/10 text-primary">
+            <span class="material-symbols-outlined text-[24px]">shopping_bag</span>
           </button>
         </div>
       </div>
-      <!-- Hero Section -->
+
       <div class="px-4 py-6">
-        <div
-          class="relative flex flex-col justify-end overflow-hidden rounded-xl min-h-[280px] bg-slate-200 dark:bg-slate-800"
-          data-alt="Elegant close up of high-end bridal makeup"
-          style="
-            background-image:
-              linear-gradient(
-                to top,
-                rgba(33, 17, 21, 0.8),
-                rgba(33, 17, 21, 0)
-              ),
-              url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuD8WLB5nYIjQ14SzqE6SKUuh-C1lN3feu6Ad49FFJC8m9Fh0hlW4biA8V_F70hWVeN5t8kjhmDeDXAuhzpUYiTNQFvKZIbTkTgJ7yyAMQ41a6GNDW4Q4tdQUJlmWNDfUizYMUVYZDX3QKpk0hIVQK0oK8-PqcZV3Ujf-f3A9PQU-XpBO-2n5Jseo2xmoqCxf2an60qPQYLnxl-XUVRgdzlptUNLOz9NWoF3LAJSkoKM7KzrpCCtJFT1qABKKUcPIAMy6HpLTysYccE&quot;);
-            background-size: cover;
-            background-position: center;
-          "
-        >
+        <div class="relative flex flex-col justify-end overflow-hidden rounded-xl min-h-[280px] bg-slate-200 dark:bg-slate-800"
+             style="background-image: linear-gradient(to top, rgba(33, 17, 21, 0.8), rgba(33, 17, 21, 0)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8WLB5nYIjQ14SzqE6SKUuh-C1lN3feu6Ad49FFJC8m9Fh0hlW4biA8V_F70hWVeN5t8kjhmDeDXAuhzpUYiTNQFvKZIbTkTgJ7yyAMQ41a6GNDW4Q4tdQUJlmWNDfUizYMUVYZDX3QKpk0hIVQK0oK8-PqcZV3Ujf-f3A9PQU-XpBO-2n5Jseo2xmoqCxf2an60qPQYLnxl-XUVRgdzlptUNLOz9NWoF3LAJSkoKM7KzrpCCtJFT1qABKKUcPIAMy6HpLTysYccE'); background-size: cover; background-position: center;">
           <div class="p-6">
-            <span
-              class="inline-block bg-primary/20 backdrop-blur-md text-primary text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded mb-2"
-              >Luxury Artistry</span
-            >
-            <h1 class="text-white text-3xl font-bold leading-tight">
-              Define Your Radiance
-            </h1>
-            <p class="text-white/80 text-sm mt-1 max-w-[240px]">
-              Tailored beauty experiences for life's most precious moments.
-            </p>
+            <span class="inline-block bg-primary/20 backdrop-blur-md text-primary text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded mb-2">Luxury Artistry</span>
+            <h1 class="text-white text-3xl font-bold leading-tight">Define Your Radiance</h1>
+            <p class="text-white/80 text-sm mt-1 max-w-[240px]">Tailored beauty experiences for life's most precious moments.</p>
           </div>
         </div>
       </div>
-      <!-- Services Section -->
+
       <div class="px-4 pb-4">
         <div class="flex items-center justify-between mb-4">
           <h2 class="text-lg font-bold tracking-tight">Our Services</h2>
           <a class="text-primary text-sm font-semibold" href="#">View All</a>
         </div>
         <div class="flex flex-col gap-4">
-          <!-- Service Card 1 -->
-          <div
-            class="flex flex-col rounded-xl shadow-sm border border-primary/5 bg-white dark:bg-slate-900/50 overflow-hidden"
-          >
-            <div
-              class="h-48 w-full bg-cover bg-center"
-              data-alt="Bride preparing with elegant makeup and jewelry"
-              style="
-                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCWw0f6daCvT-MoRdqlZOpaq3K-tK2EDwtpj7xcNklTOse3S3ZjNsdemba4eGPoDinMCzAUXIyKNwgwF2dJdgeNQFZjASD-kq90UtROrreL7JYhe4NQ8xobRh2V-zMkl6sRvOFXN-tcR-ImUmiGDDZB1kmEipcHB65jhCrX1tElMvoFp9W4VpFPcwmBKzkRH-UZ2CYXD7snmhDHPOqQbPYUTOwjnthwrLoplI9N5OoPUpGoWUOXrqrU5V6V0v1hjxcAlhGY7MtnRk4&quot;);
-              "
-            ></div>
+          <div class="flex flex-col rounded-xl shadow-sm border border-primary/5 bg-white dark:bg-slate-900/50 overflow-hidden">
+            <div class="h-48 w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWw0f6daCvT-MoRdqlZOpaq3K-tK2EDwtpj7xcNklTOse3S3ZjNsdemba4eGPoDinMCzAUXIyKNwgwF2dJdgeNQFZjASD-kq90UtROrreL7JYhe4NQ8xobRh2V-zMkl6sRvOFXN-tcR-ImUmiGDDZB1kmEipcHB65jhCrX1tElMvoFp9W4VpFPcwmBKzkRH-UZ2CYXD7snmhDHPOqQbPYUTOwjnthwrLoplI9N5OoPUpGoWUOXrqrU5V6V0v1hjxcAlhGY7MtnRk4');"></div>
             <div class="p-4 flex flex-col gap-2">
               <div class="flex justify-between items-start">
                 <div>
-                  <p class="text-lg font-bold">Bridal Glam</p>
-                  <p class="text-slate-500 dark:text-slate-400 text-xs">
-                    Exquisite beauty for your wedding day.
-                  </p>
+                  <p class="text-lg font-bold service-title">Bridal Glam</p>
+                  <p class="text-slate-500 dark:text-slate-400 text-xs">Exquisite beauty for your wedding day.</p>
                 </div>
                 <p class="text-primary font-bold text-lg">from $250</p>
               </div>
-              <button
-                class="mt-2 w-full flex items-center justify-center rounded-lg h-11 bg-primary text-white font-bold tracking-wide"
-              >
-                Book Session
-              </button>
+              <button onclick="selectService('Bridal Glam')" class="mt-2 w-full flex items-center justify-center rounded-lg h-11 bg-primary text-white font-bold tracking-wide active:scale-95 transition-transform">Book Session</button>
             </div>
           </div>
-          <!-- Service Card 2 -->
-          <div
-            class="flex flex-col rounded-xl shadow-sm border border-primary/5 bg-white dark:bg-slate-900/50 overflow-hidden"
-          >
-            <div
-              class="h-48 w-full bg-cover bg-center"
-              data-alt="Soft birthday celebration glam makeup look"
-              style="
-                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCzKMGPEqTIxWRydlC0c3jBHbomu_2PfGjETbtcz7KcSgkPH6pch2EA8adTuz4pSJllu-y7xaDQISU_vaVtnAHZG5qpRmplfqukkfneYGIb3LfwIS6s0-jwmiXWXHdc0LETy84p92WDoByNzsjpzFj1EsjciS5CPZMy0PnzERzTZDzlolPTagaJ-XioP53KrP4fICX4uAuUFXAMZhREyW8gWcZ-cn3pzYW-Mts0o_MeSHASkUrV8BmcP7E861jhi0UjNknxC58KzNU&quot;);
-              "
-            ></div>
+          <div class="flex flex-col rounded-xl shadow-sm border border-primary/5 bg-white dark:bg-slate-900/50 overflow-hidden">
+            <div class="h-48 w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCzKMGPEqTIxWRydlC0c3jBHbomu_2PfGjETbtcz7KcSgkPH6pch2EA8adTuz4pSJllu-y7xaDQISU_vaVtnAHZG5qpRmplfqukkfneYGIb3LfwIS6s0-jwmiXWXHdc0LETy84p92WDoByNzsjpzFj1EsjciS5CPZMy0PnzERzTZDzlolPTagaJ-XioP53KrP4fICX4uAuUFXAMZhREyW8gWcZ-cn3pzYW-Mts0o_MeSHASkUrV8BmcP7E861jhi0UjNknxC58KzNU');"></div>
             <div class="p-4 flex flex-col gap-2">
               <div class="flex justify-between items-start">
                 <div>
-                  <p class="text-lg font-bold">Birthday Celebration</p>
-                  <p class="text-slate-500 dark:text-slate-400 text-xs">
-                    Radiate confidence on your special day.
-                  </p>
+                  <p class="text-lg font-bold service-title">Birthday Celebration</p>
+                  <p class="text-slate-500 dark:text-slate-400 text-xs">Radiate confidence on your special day.</p>
                 </div>
                 <p class="text-primary font-bold text-lg">$150</p>
               </div>
-              <button
-                class="mt-2 w-full flex items-center justify-center rounded-lg h-11 bg-primary text-white font-bold tracking-wide"
-              >
-                Book Session
-              </button>
+              <button onclick="selectService('Birthday Celebration')" class="mt-2 w-full flex items-center justify-center rounded-lg h-11 bg-primary text-white font-bold tracking-wide active:scale-95 transition-transform">Book Session</button>
             </div>
           </div>
-          <!-- Service Card 3 -->
-          <div
-            class="flex flex-col rounded-xl shadow-sm border border-primary/5 bg-white dark:bg-slate-900/50 overflow-hidden"
-          >
-            <div
-              class="h-48 w-full bg-cover bg-center"
-              data-alt="High quality photography studio session makeup"
-              style="
-                background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCCrDAi5uCcNRU--8A4pJYOAIRt1xGWbig1R0INySTInKdEJy-MMIsto41C-POyKVgAhW4-1UEBxcWOkVQj6lY8Fua12Qnc1KPGB9-fiKflJca73ko_Odp9nEd2IgMFigwZqzkvF9wQPvB_NMmZ_JjnMKbIY1ua3fqUCFLy6oPz0INgjW_m_wTZ84iBxDIt3jWxIEc4-CcWtzhD0Dwk2pbo9ipMX8mqKVHxZdcJp1M95SuFNo4-A4vj9Xo1gFEte-YKH7eeafwrhMw&quot;);
-              "
-            ></div>
+          <div class="flex flex-col rounded-xl shadow-sm border border-primary/5 bg-white dark:bg-slate-900/50 overflow-hidden">
+            <div class="h-48 w-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCrDAi5uCcNRU--8A4pJYOAIRt1xGWbig1R0INySTInKdEJy-MMIsto41C-POyKVgAhW4-1UEBxcWOkVQj6lY8Fua12Qnc1KPGB9-fiKflJca73ko_Odp9nEd2IgMFigwZqzkvF9wQPvB_NMmZ_JjnMKbIY1ua3fqUCFLy6oPz0INgjW_m_wTZ84iBxDIt3jWxIEc4-CcWtzhD0Dwk2pbo9ipMX8mqKVHxZdcJp1M95SuFNo4-A4vj9Xo1gFEte-YKH7eeafwrhMw');"></div>
             <div class="p-4 flex flex-col gap-2">
               <div class="flex justify-between items-start">
                 <div>
-                  <p class="text-lg font-bold">Studio Sessions</p>
-                  <p class="text-slate-500 dark:text-slate-400 text-xs">
-                    High-definition makeup for professional shoots.
-                  </p>
+                  <p class="text-lg font-bold service-title">Studio Sessions</p>
+                  <p class="text-slate-500 dark:text-slate-400 text-xs">High-definition makeup for professional shoots.</p>
                 </div>
                 <p class="text-primary font-bold text-lg">$180</p>
               </div>
-              <button
-                class="mt-2 w-full flex items-center justify-center rounded-lg h-11 bg-primary text-white font-bold tracking-wide"
-              >
-                Book Session
-              </button>
+              <button onclick="selectService('Studio Sessions')" class="mt-2 w-full flex items-center justify-center rounded-lg h-11 bg-primary text-white font-bold tracking-wide active:scale-95 transition-transform">Book Session</button>
             </div>
           </div>
         </div>
       </div>
-      <!-- Portfolio Gallery -->
+
       <div class="px-4 py-8">
         <div class="text-center mb-8">
           <h2 class="text-2xl font-bold tracking-tight mb-2">Portfolio</h2>
           <div class="w-12 h-1 bg-primary mx-auto rounded-full"></div>
         </div>
         <div class="grid grid-cols-2 gap-3">
-          <div
-            class="aspect-[3/4] rounded-lg overflow-hidden bg-slate-200"
-            data-alt="Fashion makeup portrait dark aesthetic"
-            style="
-              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDhAJ8Xk43u2xQVS7mnI_mNgtuVRMlSr8lWepns2sUPHPvxSoZMSsrfG-IHQ5xOxyhtY2GFUEeJhRdvzoaTZDCuGEKr70oRRU0FC0_8A-NL4btXjjjI9dKjtl_7LgAOHe6R5tuwKgBR-QUFam_tL626YyF0I8DAM1N5AVX_q18Z23jpgHDMuvKxK9YrXWKJp-sqZ_PsKVE9DN53AN6Ruvl8z7-UVW5h8sj167w9Mm4JciX-0TW-mi2ZnSKL9xXoR2ePyTJ9NN54dHE&quot;);
-              background-size: cover;
-            "
-          ></div>
-          <div
-            class="aspect-square rounded-lg overflow-hidden bg-slate-200"
-            data-alt="Natural beauty makeup close up"
-            style="
-              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBm8i4Q4PlV3RMShq9iUR71j-Cel0P6lf6FrtkCSY15snjSlsmifrCIfs65_9ydJP8YQeI2oDBtUz3CTZY565xjv8NDMN7LACA2pdWZlGpHq3EqOcHf-X3wTo6gEDNyZ4szQMPYyTiuTorBT1mOgsofyR5xSJZpr9MeTN8bhLc5oEafRVhK4pucTKyaJU62Md_Cm0nD-o-x8QvtP-tKJnn_gFzgXwQj0A1TuBC2Ab640DUlep8RIQBYC72FHtZWkiNl9nJ-UhyEWOo&quot;);
-              background-size: cover;
-            "
-          ></div>
-          <div
-            class="aspect-square rounded-lg overflow-hidden bg-slate-200"
-            data-alt="Detailed eyeshadow artistry macro shot"
-            style="
-              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuC3-QTBHYOxTosyy56Fu-YUKvIPewQLMq43Ggi-sQMTRiFBh8lDejT9zecPSmzn1RtgTkgMSMdg3AyYQD9BFuviNGP1V1q7CDNe_QBc0Q5km11q6hAjsDS8enwdzImqcuC298hBSgoFizy1Hatn410rz9QSHjXtBea325vZJPYl4bqJ8ZNxQJZkSiZ8ap6niZX3h-YTkVDhG3xh2X78M0zjpDbKFXyKzAPrvgLRu7f-kmwGLdIyg-BfQaPkEVqIBes0QynLZxBU6a8&quot;);
-              background-size: cover;
-            "
-          ></div>
-          <div
-            class="aspect-[3/4] rounded-lg overflow-hidden bg-slate-200 -mt-8"
-            data-alt="Elegant evening makeup look for gala"
-            style="
-              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAYUO6jOaF4Aur3CW5ff4ALaMfmMMEW1sU12uQ_yqsRVhc7BT_7U8YLh4qcsiowYOwIw_VQDNWrtkO-nAeUuEq1gDP-w4PGabVkfRhp89pBntb1qfmKTX_6hRoGe-rExbg5O8r7TyacEcJz68Hc8dE4H4o-Sth6QfHbXZtAd4DMmBGsGK6ealUHD3auuX6enzG-2JEnqevcbaAZc_pw87U2ZcLL16sgdpXi5TTWYxf6CwGL7vu60aTMwyZSX9_KTlhnM8Ebk21LtEA&quot;);
-              background-size: cover;
-            "
-          ></div>
-          <div
-            class="aspect-[3/4] rounded-lg overflow-hidden bg-slate-200"
-            data-alt="Minimalist glowing skin makeup look"
-            style="
-              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuArnGLI4mV_I-qR8pxHsfqsBKCRHpgF7LGLPZoIq4-V7fmUpbTYTQJbXx3su6nML3KgPE8ZhJnpOanxAet-W9fe7aZM6vKAizhgwfVRolLfVBiVJi9cdLN5RaKl-BPU9rLTBA_dIqSRj9OS4X_mw6atAYIZ4vJSAgdHguFPqECi7V1FKMyDUpcnZbk69y6VcBPGqWJq5E3hlf32-DM__213px4ZAzT8FSk2lSYRCTE2DmoaFi1axRvZFJb9g1uAkFqxBcWVVstDxZ8&quot;);
-              background-size: cover;
-            "
-          ></div>
-          <div
-            class="aspect-square rounded-lg overflow-hidden bg-slate-200"
-            data-alt="Bold red lip editorial makeup look"
-            style="
-              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBs8sz-1EEMF7V3mA_0oezY2S9qSI-nvFa5WUlsmJ51GizeERFh3JcP6fjCL3NxwFl2ssUzsovlj8M-FVY0R9L90J9auTqNZ64lLpDTml7FVvwVycojaUAJHyuewat51qLJnUlVEhQcBA6xuG0811L3GbJ5zwgE6oI7bxle6H5p1jLrLGCl2Cigq3Iq5M0YB6vYWf6L5yDVZxItjTp6J8MWXPZZQiqX3xwmbF36xfg-26XwkqgpcH6fz7v06vm3czoHzYx2aqDNyH4&quot;);
-              background-size: cover;
-            "
-          ></div>
+          <div class="aspect-[3/4] rounded-lg overflow-hidden bg-slate-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDhAJ8Xk43u2xQVS7mnI_mNgtuVRMlSr8lWepns2sUPHPvxSoZMSsrfG-IHQ5xOxyhtY2GFUEeJhRdvzoaTZDCuGEKr70oRRU0FC0_8A-NL4btXjjjI9dKjtl_7LgAOHe6R5tuwKgBR-QUFam_tL626YyF0I8DAM1N5AVX_q18Z23jpgHDMuvKxK9YrXWKJp-sqZ_PsKVE9DN53AN6Ruvl8z7-UVW5h8sj167w9Mm4JciX-0TW-mi2ZnSKL9xXoR2ePyTJ9NN54dHE'); background-size: cover;"></div>
+          <div class="aspect-square rounded-lg overflow-hidden bg-slate-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBm8i4Q4PlV3RMShq9iUR71j-Cel0P6lf6FrtkCSY15snjSlsmifrCIfs65_9ydJP8YQeI2oDBtUz3CTZY565xjv8NDMN7LACA2pdWZlGpHq3EqOcHf-X3wTo6gEDNyZ4szQMPYyTiuTorBT1mOgsofyR5xSJZpr9MeTN8bhLc5oEafRVhK4pucTKyaJU62Md_Cm0nD-o-x8QvtP-tKJnn_gFzgXwQj0A1TuBC2Ab640DUlep8RIQBYC72FHtZWkiNl9nJ-UhyEWOo'); background-size: cover;"></div>
+          <div class="aspect-square rounded-lg overflow-hidden bg-slate-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3-QTBHYOxTosyy56Fu-YUKvIPewQLMq43Ggi-sQMTRiFBh8lDejT9zecPSmzn1RtgTkgMSMdg3AyYQD9BFuviNGP1V1q7CDNe_QBc0Q5km11q6hAjsDS8enwdzImqcuC298hBSgoFizy1Hatn410rz9QSHjXtBea325vZJPYl4bqJ8ZNxQJZkSiZ8ap6niZX3h-YTkVDhG3xh2X78M0zjpDbKFXyKzAPrvgLRu7f-kmwGLdIyg-BfQaPkEVqIBes0QynLZxBU6a8'); background-size: cover;"></div>
+          <div class="aspect-[3/4] rounded-lg overflow-hidden bg-slate-200 -mt-8" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAYUO6jOaF4Aur3CW5ff4ALaMfmMMEW1sU12uQ_yqsRVhc7BT_7U8YLh4qcsiowYOwIw_VQDNWrtkO-nAeUuEq1gDP-w4PGabVkfRhp89pBntb1qfmKTX_6hRoGe-rExbg5O8r7TyacEcJz68Hc8dE4H4o-Sth6QfHbXZtAd4DMmBGsGK6ealUHD3auuX6enzG-2JEnqevcbaAZc_pw87U2ZcLL16sgdpXi5TTWYxf6CwGL7vu60aTMwyZSX9_KTlhnM8Ebk21LtEA'); background-size: cover;"></div>
+          <div class="aspect-[3/4] rounded-lg overflow-hidden bg-slate-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuArnGLI4mV_I-qR8pxHsfqsBKCRHpgF7LGLPZoIq4-V7fmUpbTYTQJbXx3su6nML3KgPE8ZhJnpOanxAet-W9fe7aZM6vKAizhgwfVRolLfVBiVJi9cdLN5RaKl-BPU9rLTBA_dIqSRj9OS4X_mw6atAYIZ4vJSAgdHguFPqECi7V1FKMyDUpcnZbk69y6VcBPGqWJq5E3hlf32-DM__213px4ZAzT8FSk2lSYRCTE2DmoaFi1axRvZFJb9g1uAkFqxBcWVVstDxZ8'); background-size: cover;"></div>
+          <div class="aspect-square rounded-lg overflow-hidden bg-slate-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBs8sz-1EEMF7V3mA_0oezY2S9qSI-nvFa5WUlsmJ51GizeERFh3JcP6fjCL3NxwFl2ssUzsovlj8M-FVY0R9L90J9auTqNZ64lLpDTml7FVvwVycojaUAJHyuewat51qLJnUlVEhQcBA6xuG0811L3GbJ5zwgE6oI7bxle6H5p1jLrLGCl2Cigq3Iq5M0YB6vYWf6L5yDVZxItjTp6J8MWXPZZQiqX3xwmbF36xfg-26XwkqgpcH6fz7v06vm3czoHzYx2aqDNyH4'); background-size: cover;"></div>
         </div>
-        <button
-          class="mt-8 w-full border border-primary/20 bg-white dark:bg-slate-900 text-primary py-3 rounded-xl font-bold"
-        >
-          View More Artistry
-        </button>
+        <button class="mt-8 w-full border border-primary/20 bg-white dark:bg-slate-900 text-primary py-3 rounded-xl font-bold">View More Artistry</button>
       </div>
-      <!-- Footer Spacer -->
-      <div class="h-24"></div>
-      <!-- Bottom Navigation Bar -->
-      <nav
-        class="fixed bottom-0 left-0 right-0 z-50 flex border-t border-primary/10 bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg px-6 pb-6 pt-3"
-      >
-        <a
-          class="flex flex-1 flex-col items-center justify-center gap-1"
-          href="/index.html"
-        >
-          <span class="material-symbols-outlined fill-1">home</span>
+
+      <nav class="fixed bottom-0 left-0 right-0 z-50 flex border-t border-primary/10 bg-white/90 dark:bg-background-dark/90 backdrop-blur-lg px-6 pb-6 pt-3 max-w-md mx-auto">
+        <a class="flex flex-1 flex-col items-center justify-center gap-1" href="index.html">
+          <span class="material-symbols-outlined">home</span>
           <p class="text-[10px] font-bold uppercase tracking-widest">Home</p>
         </a>
-        <a
-          class="flex flex-1 flex-col items-center justify-center gap-1 text-nude-dark dark:text-slate-400 text-primary"
-          href="/service.html"
-        >
-          <span class="material-symbols-outlined">palette</span>
-          <p class="text-[10px] font-medium uppercase tracking-widest">
-            Services
-          </p>
+        <a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="service.html">
+          <span class="material-symbols-outlined fill-1">palette</span>
+          <p class="text-[10px] font-medium uppercase tracking-widest">Services</p>
         </a>
-        <a
-          class="flex flex-1 flex-col items-center justify-center gap-1 text-nude-dark dark:text-slate-400"
-          href="/testimonials.html"
-        >
+        <a class="flex flex-1 flex-col items-center justify-center gap-1" href="testimonials.html">
           <span class="material-symbols-outlined">photo_library</span>
-          <p class="text-[10px] font-medium uppercase tracking-widest">
-            Testimonials
-          </p>
+          <p class="text-[10px] font-medium uppercase tracking-widest">Testimonials</p>
         </a>
-        <a
-          class="flex flex-1 flex-col items-center justify-center gap-1 text-nude-dark dark:text-slate-400"
-          href="/contact.html"
-        >
+        <a class="flex flex-1 flex-col items-center justify-center gap-1" href="contact.html">
           <span class="material-symbols-outlined">calendar_month</span>
           <p class="text-[10px] font-medium uppercase tracking-widest">Book</p>
         </a>
       </nav>
     </div>
+
+    <script>
+      function selectService(name) {
+        localStorage.setItem('gg_booking_service', name);
+        window.location.href = 'contact.html';
+      }
+    </script>
   </body>
 </html>
